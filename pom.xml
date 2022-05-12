@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.6.3</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.netmillennium.gagrid.services.movie</groupId>
+	<artifactId>gagrid-services-movie</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>gagrid-services-movie</name>
+	<description>gagrid-services-movie</description>
+	<properties>
+		<java.version>1.8</java.version>
+                <ignite.version>2.12.0</ignite.version>
+                <junit.jupiter.version>5.5.2</junit.jupiter.version>
+                 <gagrid-core.version>0.1.0-beta</gagrid-core.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>com.netmillennium.gagrid</groupId>
+	                <artifactId>gagrid-core</artifactId>
+	                <version>${gagrid-core.version}</version>
+		</dependency>
+ 
+    <dependency>
+        <groupId>org.apache.ignite</groupId>
+        <artifactId>ignite-core</artifactId>
+        <version>${ignite.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.ignite</groupId>
+        <artifactId>ignite-indexing</artifactId>
+        <version>${ignite.version}</version>
+    </dependency>
+
+
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jdbc</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+                        <exclusions>
+    <exclusion>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+    </exclusion>
+  </exclusions>
+		</dependency>
+
+             <!-- junit 5 -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <scope>test</scope>
+    </dependency>
+ 
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <scope>test</scope>
+    </dependency>
+ 
+	</dependencies>
+
+<distributionManagement>
+   <repository>
+     <id>github</id>
+     <name>GitHub netmille Apache Maven Packages</name>
+     <url>https://maven.pkg.github.com/netmille/gagrid-services-movie</url>
+   </repository>
+</distributionManagement>
+</project>
