@@ -1,9 +1,9 @@
-package com.netmillennium.gagrid.app.movie.service;
+package com.netmillennium.gagrid.services.movie;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.netmillennium.gagrid.app.movie.model.Movie;
+import com.netmillennium.gagrid.services.movie.Movie;
 import com.netmillennium.gagrid.model.Gene;
 import com.netmillennium.gagrid.parameter.IFitnessFunction;
 
@@ -63,7 +63,7 @@ public class MovieFitnessFunction implements IFitnessFunction {
             if (genreScore == 0) {
                 badSolution = 0;
             }
-           // score = (score + movie.getImdbRating()) + (genreScore);
+      
             score = (score) + (genreScore);
         }
         return (score * badSolution);

@@ -1,11 +1,11 @@
-package com.netmillennium.gagrid.app.movie.service;
+package com.netmillennium.gagrid.services.movie;
 
 import java.util.List;
 
 import org.apache.ignite.Ignite;
 import org.apache.ignite.IgniteLogger;
 
-import com.netmillennium.gagrid.app.movie.model.Movie;
+import com.netmillennium.gagrid.services.movie.Movie;
 import com.netmillennium.gagrid.model.Chromosome;
 import com.netmillennium.gagrid.model.Gene;
 import com.netmillennium.gagrid.parameter.ITerminateCriteria;
@@ -39,7 +39,7 @@ public class MovieTerminateCriteria implements ITerminateCriteria {
 
     public boolean isTerminationConditionMet(Chromosome fittestChromosome, double averageFitnessScore,
         int currentGeneration) {
-        boolean isTerminate = true;
+        boolean isTerminate = false;
 
         igniteLogger.info("##########################################################################################");
         igniteLogger.info("Generation: " + currentGeneration);
@@ -49,8 +49,9 @@ public class MovieTerminateCriteria implements ITerminateCriteria {
         igniteLogger.info("##########################################################################################");
 
 
-        if (!(fittestChromosome.getFitnessScore() > 3)) {
-            isTerminate = false;
+        //Only allow maximum of 100 generations
+        if (!(fittestChromosome.getFitnessScore() < 3) || currentGeneration> 499) {
+            isTerminate = true;
         }
 
         return isTerminate;

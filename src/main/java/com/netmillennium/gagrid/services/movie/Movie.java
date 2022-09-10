@@ -1,4 +1,4 @@
-package com.netmillennium.gagrid.app.movie.model;
+package com.netmillennium.gagrid.services.movie;
 
 import java.util.List;
 

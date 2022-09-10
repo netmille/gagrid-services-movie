@@ -1,4 +1,4 @@
-package com.netmillennium.gagrid.app.movie.service;
+package com.netmillennium.gagrid.services.movie;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
 
-import com.netmillennium.gagrid.app.movie.model.Movie;
+import com.netmillennium.gagrid.services.movie.Movie;
 
 @Service("movieService")
 public class MovieService {
@@ -18,8 +18,8 @@ public class MovieService {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	public List<Movie> getAllMovies() {
-		return jdbcTemplate.query("SELECT * FROM movie", new RowMapper<Movie>() {
+	public List<Movie> getAllMovies(String clause) {
+		return jdbcTemplate.query("SELECT * FROM movie where genre in " + clause, new RowMapper<Movie>() {
 
 			public Movie mapRow(ResultSet rs, int arg1) throws SQLException {
 				Movie c = new Movie();
