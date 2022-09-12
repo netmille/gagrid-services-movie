@@ -5,18 +5,17 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.ignite.internal.util.typedef.internal.SB;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
-
-import com.netmillennium.gagrid.services.movie.Movie;
 
 @Service("movieService")
 public class MovieService {
 
 	@Autowired
+	@Qualifier("pgJdbcTemplate")
 	private JdbcTemplate jdbcTemplate;
 
 	public List<Movie> getAllMovies(List<String> genres) {
