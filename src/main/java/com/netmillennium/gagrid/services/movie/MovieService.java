@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
+import org.apache.ignite.internal.util.typedef.internal.SB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -18,8 +19,24 @@ public class MovieService {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	public List<Movie> getAllMovies(String clause) {
-		return jdbcTemplate.query("SELECT * FROM movie where genre in " + clause, new RowMapper<Movie>() {
+	public List<Movie> getAllMovies(List<String> genres) {
+		
+		StringBuffer sbClause = new StringBuffer();
+		int j=0;
+		sbClause.append("(");
+		
+		for (String genre: genres)
+		{
+			if (j>0) sbClause.append(",");
+			sbClause.append("'");
+			sbClause.append(genre);
+			sbClause.append("'");
+			j=j+1;
+		}
+		
+		sbClause.append(")");
+		
+		return jdbcTemplate.query("SELECT * FROM movie where genre in " + sbClause.toString(), new RowMapper<Movie>() {
 
 			public Movie mapRow(ResultSet rs, int arg1) throws SQLException {
 				Movie c = new Movie();
