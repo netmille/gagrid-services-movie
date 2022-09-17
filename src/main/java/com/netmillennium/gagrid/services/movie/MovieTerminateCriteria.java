@@ -50,7 +50,7 @@ public class MovieTerminateCriteria implements ITerminateCriteria {
 
 
         //Only allow maximum of 100 generations
-        if (!(fittestChromosome.getFitnessScore() < 3) || currentGeneration> 499) {
+        if (!(fittestChromosome.getFitnessScore() < 10) || currentGeneration> 499) {
             isTerminate = true;
         }
 
