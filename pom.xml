@@ -11,14 +11,14 @@
 	</parent>
 	<groupId>com.netmillennium.gagrid.services.movie</groupId>
 	<artifactId>gagrid-services-movie</artifactId>
-	<version>0.1.0-beta</version>
+	<version>0.1.1-beta</version>
 	<name>gagrid-services-movie</name>
 	<description>gagrid-services-movie</description>
 	<properties>
 		<java.version>1.8</java.version>
-                <ignite.version>2.12.0</ignite.version>
+                <ignite.version>2.15.0</ignite.version>
                 <junit.jupiter.version>5.5.2</junit.jupiter.version>
-                 <gagrid-core.version>0.1.0-beta</gagrid-core.version>
+                 <gagrid-core.version>0.1.1-beta</gagrid-core.version>
 	</properties>
 	<dependencies>
 		<dependency>
